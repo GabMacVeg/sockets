@@ -1,10 +1,12 @@
 
 *.class
-Controlador/*.class
-Dataobjects/*.class
-Modelo/*.class
-Vista/*.class
-Vista/Altas/*.class
-Vista/Bajas/*.class
-Vista/Listas/*.class
-Vista/Menus/*.class
+Cliente/*.class
+Servidor/*.class
+Servidor/Controlador/*.class
+Servidor/Dataobjects/*.class
+Servidor/Modelo/*.class
+
+Cliente/Altas/*.class
+Cliente/Bajas/*.class
+Cliente/Listas/*.class
+Cliente/Menus/*.class
