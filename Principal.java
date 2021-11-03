@@ -1,6 +1,6 @@
 
 import java.util.Scanner;
-import Controlador.CtrlPrincipal;
+import Servidor.Controlador.CtrlPrincipal;
 
 public class Principal{
     public static void main(String[] args) {
