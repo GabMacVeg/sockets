@@ -6,7 +6,3 @@ Servidor/Controlador/*.class
 Servidor/Dataobjects/*.class
 Servidor/Modelo/*.class
 
-Cliente/Altas/*.class
-Cliente/Bajas/*.class
-Cliente/Listas/*.class
-Cliente/Menus/*.class
