@@ -9,9 +9,13 @@ import java.io.DataOutputStream;
 
 import java.util.ArrayList;
 
-import Servidor.Modelo.ModeloUsuariosPersistente;
+import Modelo.ModeloAdministrador;
+import Modelo.ModeloAlumno;
+import Modelo.ModeloMaestro;
 
-import Servidor.DataObjects.Usuario;
+import DataObjects.Alumno;
+import DataObjects.Maestro;
+import DataObjects.Administrador;
 
 public class ClientConnection extends Thread{
 
@@ -20,7 +24,11 @@ public class ClientConnection extends Thread{
     private DataInputStream dataInputStream;
     private OutputStream outputStream;
     private DataOutputStream dataOutputStream;
-    private ModeloUsuariosPersistente modeloUsuarios = new ModeloUsuariosPersistente();
+    
+    private ModeloAdministrador modeloAdministrador = new ModeloAdministrador();
+    private ModeloAlumno modeloAlumno = new ModeloAlumno();
+    private ModeloMaestro ModeloMaestro = mew ModeloMaestro();
+    
 
     public ClientConnection(Socket socket) throws IOException {
         this.socket =  socket;
