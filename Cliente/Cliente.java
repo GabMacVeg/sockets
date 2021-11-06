@@ -44,7 +44,6 @@ public class Cliente{
             dos.writeInt(1);//Un uno, significa login
             dos.writeUTF(login.getUser());
             dos.writeUTF(login.getPass());
-
             int cmd = (int)dis.readInt();
             switch(cmd){
                 case 0:

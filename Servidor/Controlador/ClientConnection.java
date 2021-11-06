@@ -75,24 +75,24 @@ public class ClientConnection extends Thread{
                 //int identificadorM = modeloMaestro.buscarMatricula(login.getUser());
                 //String nombreM = modeloMaestro.buscarNombre(login.getUser());
                 modeloMaestro.setMsg("si se pudo");
-                System.exit(1);
-                              
+                dataOutputStream.writeInt(2);
+                //System.exit(1);                              
             }else{
                 if(administrador!=null){
                     //String nombreAd = modeloAdministrador.buscarNombre(login.getUser());
-                     modeloMaestro.setMsg("si se pudo");
-                     System.exit(1);
-
+                    modeloMaestro.setMsg("si se pudo");
+                    dataOutputStream.writeInt(3);
+                    //System.exit(1);
                 }else{
                     if(alumno!=null){
                        // int identificadorA = modeloAlumno.buscarMatricula(login.getUser());
                         //String nombreA = modeloAlumno.buscarNombre(login.getUser());
-                         modeloMaestro.setMsg("si se pudo");
-                         System.exit(1);
-                    }else{
-                        
-                         modeloMaestro.setMsg("no se pudo");
-                         System.exit(1);
+                        modeloMaestro.setMsg("si se pudo");
+                        dataOutputStream.writeInt(1);
+                        //System.exit(1);
+                    }else{                        
+                        modeloMaestro.setMsg("no se pudo");
+                        System.exit(1);
                     }
                 }
             }        
