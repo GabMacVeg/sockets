@@ -7,11 +7,11 @@ import java.io.DataOutputStream;
 
 import java.util.Scanner;
 
-import Login;
-import Vista.Administrador.MenuAdministrador;
-import Vista.Administrador.AltaUsuarios;
-import Vista.Administrador.BajaUsuarios;
 
+
+import Menus.MenuAdministrador;
+import Menus.MenuAlumno;
+import Menus.MenuMaestro;
 
 public class Cliente{
     private Scanner sc =  new Scanner(System.in);
@@ -51,9 +51,17 @@ public class Cliente{
                     login.setMsg("Login incorrecto");
                     break;
                 case 1:
-                    administrador();
+                    MenuAdministrador menuAdmin = new MenuAdministrador(sc);
+                    menuAdmin.show();
                     break;
-
+                case 2:
+                    MenuMaestro menuMae = new MenuMaestro(sc);
+                    menuMae.show();
+                    break;
+                case 3:
+                    MenuAlumno menuAlu = new MenuAlumno(sc);
+                    menuAlu.show();
+                    break;
             }
 
         }while(true);

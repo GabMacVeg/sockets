@@ -1,8 +1,8 @@
-package Servidor.Modelo;
+package Modelo;
 
 import java.util.ArrayList;
 
-import Servidor.Dataobjects.Administrador;
+import Dataobjects.Administrador;
 
 public class ModeloAdministrador{
 
@@ -62,5 +62,9 @@ public class ModeloAdministrador{
         }
         
     }
+
+    public void setMsg(String msg){
+        System.out.println(msg);
+     }
 
 }

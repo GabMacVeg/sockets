@@ -1,10 +1,10 @@
-package Servidor.Modelo;
+package Modelo;
 
 import java.util.ArrayList;
 
-import Servidor.Dataobjects.HorarioAlumno;
-import Servidor.Dataobjects.Materia;
-import Servidor.Modelo.ModeloMateria;
+import Dataobjects.HorarioAlumno;
+import Dataobjects.Materia;
+import Modelo.ModeloMateria;
 
 public class ModeloHorarioAlumno{
 

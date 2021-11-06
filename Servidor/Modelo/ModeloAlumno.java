@@ -1,8 +1,8 @@
-package Servidor.Modelo;
+package Modelo;
 
 import java.util.ArrayList;
 
-import Servidor.Dataobjects.Alumno;
+import Dataobjects.Alumno;
 
 public class ModeloAlumno{
 
@@ -72,5 +72,9 @@ public class ModeloAlumno{
         }
         return 1;
     }
+
+    public void setMsg(String msg){
+        System.out.println(msg);
+     }
 
 }

@@ -1,4 +1,4 @@
-package Servidor.Dataobjects;
+package Dataobjects;
 
 public class HorarioMaestro{
 
@@ -20,4 +20,5 @@ public class HorarioMaestro{
     public String toString(){
         return this.nombreMaestro + "\t" + this.materia;
     }
+    
 }

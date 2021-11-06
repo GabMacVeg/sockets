@@ -1,9 +1,9 @@
 
-package Servidor.Modelo;
+package Modelo;
 
 import java.util.ArrayList;
 
-import Servidor.Dataobjects.Materia;
+import Dataobjects.Materia;
 
 public class ModeloMateria{
 

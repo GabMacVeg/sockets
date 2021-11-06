@@ -1,4 +1,5 @@
 package Controlador;
+import java.util.Scanner;
 
 import java.net.Socket;
 import java.io.IOException;
@@ -12,10 +13,18 @@ import java.util.ArrayList;
 import Modelo.ModeloAdministrador;
 import Modelo.ModeloAlumno;
 import Modelo.ModeloMaestro;
+import Modelo.ModeloCarrera;
+import Modelo.ModeloHorarioAlumno;
+import Modelo.ModeloHorarioMaestro;
+import Modelo.ModeloMateria;
 
-import DataObjects.Alumno;
-import DataObjects.Maestro;
-import DataObjects.Administrador;
+import Dataobjects.Alumno;
+import Dataobjects.Maestro;
+import Dataobjects.Administrador;
+import Dataobjects.Carrera;
+import Dataobjects.HorarioAlumno;
+import Dataobjects.HorarioMaestro;
+import Dataobjects.Materia;
 
 public class ClientConnection extends Thread{
 
@@ -25,9 +34,15 @@ public class ClientConnection extends Thread{
     private OutputStream outputStream;
     private DataOutputStream dataOutputStream;
     
+    private Scanner sc = new Scanner(System.in);
+    
     private ModeloAdministrador modeloAdministrador = new ModeloAdministrador();
+    private ModeloMaestro modeloMaestro = new ModeloMaestro();
     private ModeloAlumno modeloAlumno = new ModeloAlumno();
-    private ModeloMaestro ModeloMaestro = mew ModeloMaestro();
+    private ModeloCarrera modeloCarrera = new ModeloCarrera();
+    private ModeloMateria modeloMateria = new ModeloMateria();
+    private ModeloHorarioMaestro modeloHorarioMaestro = new ModeloHorarioMaestro();
+    private ModeloHorarioAlumno modeloHorarioAlumno = new ModeloHorarioAlumno();
     
 
     public ClientConnection(Socket socket) throws IOException {
@@ -50,30 +65,61 @@ public class ClientConnection extends Thread{
     public void login() throws IOException{
         String user = (String)dataInputStream.readUTF();
         String pass = (String)dataInputStream.readUTF();
-        Usuario usuario = modeloUsuarios.login(user, pass);
-        if(usuario!=null){
-            dataOutputStream.writeInt(usuario.getTipo());
+       
+        
+        do{
+            Maestro maestro = modeloMaestro.login(user,pass);
+            Administrador administrador = modeloAdministrador.login(user,pass);
+            Alumno alumno = modeloAlumno.login(user,pass);
+            if(maestro!=null){
+                //int identificadorM = modeloMaestro.buscarMatricula(login.getUser());
+                //String nombreM = modeloMaestro.buscarNombre(login.getUser());
+                modeloMaestro.setMsg("si se pudo");
+                System.exit(1);
+                              
+            }else{
+                if(administrador!=null){
+                    //String nombreAd = modeloAdministrador.buscarNombre(login.getUser());
+                     modeloMaestro.setMsg("si se pudo");
+                     System.exit(1);
+
+                }else{
+                    if(alumno!=null){
+                       // int identificadorA = modeloAlumno.buscarMatricula(login.getUser());
+                        //String nombreA = modeloAlumno.buscarNombre(login.getUser());
+                         modeloMaestro.setMsg("si se pudo");
+                         System.exit(1);
+                    }else{
+                        
+                         modeloMaestro.setMsg("no se pudo");
+                         System.exit(1);
+                    }
+                }
+            }        
+        }while(true);
+
+        // if(usuario!=null){
+        //    // dataOutputStream.writeInt(usuario.getTipo());
             
-            /*switch(usuario.getTipo()){
-                case 1://Administrador
-                    new CtrlAdministrador(sc, modeloUsuarios);
-                    break;
-                case 2://Vendedor
-                    new CtrlVentas(sc, modeloProductos);
-                    break;
-            }*/
-            //Login correcto
-            //login.setMsg("Login correcto");
-        }else{
-            //Login incorrecto
-            //login.setMsg("Login incorrecto");
-            dataOutputStream.writeInt(0);
-        }
+        //     /*switch(usuario.getTipo()){
+        //         case 1://Administrador
+        //             new CtrlAdministrador(sc, modeloUsuarios);
+        //             break;
+        //         case 2://Vendedor
+        //             new CtrlVentas(sc, modeloProductos);
+        //             break;
+        //     }*/
+        //     //Login correcto
+        //     //login.setMsg("Login correcto");
+        // }else{
+        //     //Login incorrecto
+        //     //login.setMsg("Login incorrecto");
+        //     dataOutputStream.writeInt(0);
+        // }
     }
     
     public void run(){        
-        String user,pass,nombre;
-        int tipo;
+        String user,pass;
         boolean existe;
         int opcion;
         try {
@@ -88,16 +134,16 @@ public class ClientConnection extends Thread{
                         this.login();
                         break;
                     case 2://Alta usuario
-                        user = (String)dataInputStream.readUTF(); 
-                        nombre = (String)dataInputStream.readUTF(); 
-                        pass = (String)dataInputStream.readUTF(); 
-                        tipo = (int)dataInputStream.readInt(); 
-                        modeloUsuarios.alta(new Usuario(user, pass, nombre, tipo));
+                        // user = (String)dataInputStream.readUTF(); 
+                        // nombre = (String)dataInputStream.readUTF(); 
+                        // pass = (String)dataInputStream.readUTF(); 
+                        // tipo = (int)dataInputStream.readInt(); 
+                        // modeloUsuarios.alta(new Usuario(user, pass, nombre, tipo));
                         break;
                     case 3://Verificar si existe usuario
-                        user = (String)dataInputStream.readUTF(); 
-                        existe = modeloUsuarios.buscarUsuario(user);
-                        dataOutputStream.writeBoolean(existe);
+                        // user = (String)dataInputStream.readUTF(); 
+                        // existe = modeloUsuarios.buscarUsuario(user);
+                        // dataOutputStream.writeBoolean(existe);
                         break;
                     case 9999://Cerrar sesion
                         break;

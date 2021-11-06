@@ -1,8 +1,8 @@
-package Servidor.Modelo;
+package Modelo;
 
 import java.util.ArrayList;
 
-import Servidor.Dataobjects.Carrera;
+import Dataobjects.Carrera;
 
 public class ModeloCarrera{
 

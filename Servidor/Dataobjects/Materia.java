@@ -1,4 +1,4 @@
-package Servidor.Dataobjects;
+package Dataobjects;
 
 public class Materia{
     private String nombre;
