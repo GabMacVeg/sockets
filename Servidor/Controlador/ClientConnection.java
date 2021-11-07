@@ -64,8 +64,7 @@ public class ClientConnection extends Thread{
 
     public void login() throws IOException{
         String user = (String)dataInputStream.readUTF();
-        String pass = (String)dataInputStream.readUTF();
-       
+        String pass = (String)dataInputStream.readUTF();     
         
         do{
             Maestro maestro = modeloMaestro.login(user,pass);
