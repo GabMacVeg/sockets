@@ -133,6 +133,7 @@ public class ClientConnection extends Thread{
                         this.login();
                         break;
                     case 2://Alta usuario
+                        println("Hola");
                         // user = (String)dataInputStream.readUTF(); 
                         // nombre = (String)dataInputStream.readUTF(); 
                         // pass = (String)dataInputStream.readUTF(); 
