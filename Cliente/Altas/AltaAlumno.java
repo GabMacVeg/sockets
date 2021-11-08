@@ -1,12 +1,12 @@
 
-package Vista.Altas;
+package Altas;
 
 import java.util.Scanner;
-import Dataobjects.Alumno;
+
 
 public class AltaAlumno{
     
-    private Alumno alumno;
+    
 
     public Alumno getAlumno(){
         return this.alumno;
@@ -31,7 +31,7 @@ public class AltaAlumno{
         nt = sc.nextLine();
         System.out.print("Correo : ");
         c = sc.nextLine();
-        this.alumno = new Alumno(user, pass, nombre, matricula,semestre,nt,c);
+        
     }
 
     public void setMsg(String msg){

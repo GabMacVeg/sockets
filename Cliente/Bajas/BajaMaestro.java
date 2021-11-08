@@ -1,7 +1,7 @@
-package Vista.Bajas;
+package Bajas;
 
 import java.util.Scanner;
-import Dataobjects.Maestro;
+
 
 public class BajaMaestro{
     private Scanner sc;

@@ -1,13 +1,13 @@
 
-package Vista.Altas;
+package Altas;
 
 import java.util.Scanner;
 
-import Dataobjects.Materia;
+
 
 public class AltaMateria{
 
-    private Materia materia;
+    
 
     public  Materia getMateria(){
         return this.materia;
@@ -23,7 +23,7 @@ public class AltaMateria{
         matricula = sc.nextInt();   
         System.out.println("Semestre: ");        
         semestre = sc.nextInt();
-        this.materia = new Materia(nombre, matricula, semestre);
+        
     }
     public void setMsg(String msg){
         System.out.println(msg);

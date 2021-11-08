@@ -1,20 +1,40 @@
 
-package Vista.Altas;
+package Altas;
 
 import java.util.Scanner;
-import Dataobjects.Administrador;
+
+
+
 
 public class AltaAdministrador{
-    
-    private Administrador administrador;
+   
+    private String nombre, user, pass,nt,c;
+       private int matricula;
 
-    public Administrador getAdmin(){
-        return this.administrador;
+       public String getUser(){
+        return this.user;
     }
 
-    public AltaAdministrador(Scanner sc){
-        String nombre, user, pass,nt,c;
-        int matricula;
+    public String getPass(){
+        return this.pass;
+    }
+    public String getNombre() {
+        return this.nombre;
+    }
+    public int getMatricula(){
+        return this.matricula;
+    }
+    public String getNTelefonico() {
+        return this.nt;
+    }
+    public String getCorreo() {
+        return this.c;
+    }
+    
+
+    public AltaAdministrador(Scanner sc) {
+        
+       
         System.out.print("Nombre: ");        
         nombre = sc.nextLine();
         nombre = sc.nextLine();
@@ -30,7 +50,7 @@ public class AltaAdministrador{
         System.out.print("Correo : ");
         c = sc.nextLine();
 
-        this.administrador = new Administrador(nombre, user, pass,matricula,nt,c);
+        
     }
 
     public void setMsg(String msg){

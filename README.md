@@ -5,4 +5,7 @@ rm Servidor/Modelo/*.class, Cliente/*.class, Servidor/Dataobjects/*.class, Servi
 
 rm *.class Controlador/*.class Dataobjects/*.class Modelo/*.class 
 
+rm *.class Altas/*.class Bajas/*.class Listas/*.class Menus/*.class 
+
  aqui vamos a poner que hacemos
+

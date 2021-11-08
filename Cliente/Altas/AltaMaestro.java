@@ -1,15 +1,31 @@
 
-package Vista.Altas;
-
+package Altas;
 import java.util.Scanner;
-import Dataobjects.Maestro;
+
 
 public class AltaMaestro{
     
-    private Maestro maestro;
+   private String nombre, user, pass,nt,c;
+       private int matricula;
 
-    public Maestro getMaestro(){
-        return this.maestro;
+       public String getUser(){
+        return this.user;
+    }
+
+    public String getPass(){
+        return this.pass;
+    }
+    public String getNombre() {
+        return this.nombre;
+    }
+    public int getMatricula(){
+        return this.matricula;
+    }
+    public String getNTelefonico() {
+        return this.nt;
+    }
+    public String getCorreo() {
+        return this.c;
     }
 
     public AltaMaestro(Scanner sc){
@@ -29,7 +45,7 @@ public class AltaMaestro{
         nt = sc.nextLine();
         System.out.print("Correo : ");
         c = sc.nextLine();
-        this.maestro = new Maestro(nombre,user,pass,matricula,nt,c);
+        
     }
 
     public void setMsg(String msg){

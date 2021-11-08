@@ -1,4 +1,4 @@
-package Vista.Altas;
+package Altas;
 
 import java.util.Scanner;
 
