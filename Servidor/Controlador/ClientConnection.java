@@ -89,9 +89,8 @@ public class ClientConnection extends Thread{
                         modeloMaestro.setMsg("si se pudo");
                         dataOutputStream.writeInt(3);
                         //System.exit(1);
-                    }else{                        
-                        modeloMaestro.setMsg("no se pudo");
-                        System.exit(1);
+                    }else{
+                        dataOutputStream.writeInt(0);
                     }
                 }
             }        

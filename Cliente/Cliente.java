@@ -69,6 +69,7 @@ public class Cliente{
                             break;
                             
                             case 2://BAJA ADMINISTRADOR
+                            /*
                                 BajaAdministrador bajaadmin =  new BajaAdministrador(sc);
                                     bajaadmin.show();
                                     existe = modeloAdministrador.buscarAdmi(bajaadmin.getAdmin());
@@ -79,10 +80,11 @@ public class Cliente{
                                     }else{
                                         bajaadmin.setMsg("Usuario inexistente");
                                     }
+                                    */
                             break;
 
                             case 3://LISTADOS - ADMINISTRADORES - MESTROS - ALUMNOS
-                            
+                                /*
                                 ListaAdministrador listadoadmi  = new ListaAdministrador();
                                 ListaMaestro listadomae  = new ListaMaestro();
                                 ListaAlumno listadoalu = new ListaAlumno();
@@ -108,8 +110,10 @@ public class Cliente{
                                         break;
                                     }         
                                 }while(menuAdmi.getVer()!=5);
+                                */
                             break;
                             case 4://Alta maestros
+                            /*
                                 AltaMaestro altamae = new AltaMaestro(sc);
                                 existe = modeloMaestro.buscarMaestro(altamae.getMaestro().getUser());
                                 if(existe)
@@ -118,8 +122,10 @@ public class Cliente{
                                     modeloMaestro.alta(altamae.getMaestro());    
                                     altamae.setMsg("Maestro creado"); 
                                 }
+                            */
                             break;
                             case 5://baja maestros
+                            /*
                                 BajaMaestro bajamae =  new BajaMaestro(sc);
                                     bajamae.show();
                                     existe = modeloMaestro.buscarMaestro(bajamae.getMaestro());
@@ -130,8 +136,10 @@ public class Cliente{
                                     }else{
                                         bajamae.setMsg("Maestro inexistente");
                                     }
+                                */
                             break;
                             case 6://alta alumnos
+                            /*
                                 AltaAlumno altaalum = new AltaAlumno(sc);
                                 existe = modeloAlumno.buscarAlumno(altaalum.getAlumno().getUser());
                                 if(existe)
@@ -140,8 +148,10 @@ public class Cliente{
                                     modeloAlumno.alta(altaalum.getAlumno());    
                                     altaalum.setMsg("Alumno creado"); 
                                 }
+                                */
                             break;
                             case 7:// baja alumnos
+                            /*
                                 BajaAlumno bajaalum =  new BajaAlumno(sc);
                                     bajaalum.show();
                                     existe = modeloAlumno.buscarAlumno(bajaalum.getAlumno());
@@ -152,8 +162,10 @@ public class Cliente{
                                     }else{
                                         bajaalum.setMsg("Alumno inexistente");
                                     }
+                                    */
                             break;
                             case 8://alta materias
+                            /*
                                 AltaMateria altamat = new AltaMateria(sc);
                                 existe = modeloMateria.buscarMateria(altamat.getMateria().getNombre());
                                 if(existe)
@@ -162,8 +174,10 @@ public class Cliente{
                                     modeloMateria.altaMateria(altamat.getMateria());    
                                     altamat.setMsg("Materia creada"); 
                                 }
+                                */
                             break;
                             case 9://baja materias
+                            /*
                                 BajaMateria bajamat =  new BajaMateria(sc);
                                     bajamat.show();
                                     existe = modeloMateria.buscarMateria(bajamat.getMateria());
@@ -174,8 +188,10 @@ public class Cliente{
                                     }else{
                                         bajamat.setMsg("Materia inexistente");
                                     }
+                                    */
                             break;
                             case 10://lista materias
+                            /*
                                 ListaMaterias listadomaterias = new ListaMaterias();
                                 listadomaterias.imprimirMaterias(modeloMateria.getMaterias());
                             break;
@@ -188,8 +204,10 @@ public class Cliente{
                                     modeloCarrera.altacarrera(altacarrera.getCarrera());
                                     altacarrera.setMsg("La carrera se creo");
                                 }
+                                */
                             break;
                             case 12://baja carreras
+                            /*
                             BajaCarrera bajacarrera = new BajaCarrera(sc);
                                 do{
                                     bajacarrera.show();
@@ -201,14 +219,19 @@ public class Cliente{
                                         bajacarrera.setMsg("Carrera inexistente. Intenta de nuevo!");
                                     }
                                 }while(!existe);
+                                */
                             break;
                             case 13://lista carreras
+                            /*
                                 ListaCarreras listadocarreras = new ListaCarreras();
                                 listadocarreras.imprimirCarreras(modeloCarrera.getCarreras());  
+                                */
                             break;
                             case 14://Ver DATOS
+                            /*
                                 VerDatosAdmin verDatosAdmin = new VerDatosAdmin();
                                 verDatosAdmin.imprimirDatosAdmin(modeloAdministrador.getAdministradores(),nombreAd);
+                            */
                             break;
                             case 20://salir
                             break;
