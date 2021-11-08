@@ -94,6 +94,7 @@ public class Cliente{
                             break;
                             case 4://Alta maestros
                                 dos.writeInt(4);
+                                
                                 AltaMaestro altaMaestro = new AltaMaestro(sc);
                                 dos.writeUTF(altaMaestro.getNombre());
                                 dos.writeUTF(altaMaestro.getUser());
@@ -116,9 +117,9 @@ public class Cliente{
                                 dos.writeUTF(bajaMaestro.getMaestro());
                                 opcion=(int)dis.readInt();
                                 if(opcion==0){
-                                    bajaMaestro.setMsg("El administrador no existe");
+                                    bajaMaestro.setMsg("El maestro no existe");
                                 }else{
-                                    bajaMaestro.setMsg("Administrador eliminado");
+                                    bajaMaestro.setMsg("Maestro eliminado");
                                 }  
                             break;
                             case 6://alta alumnos

@@ -145,16 +145,16 @@ public class ClientConnection extends Thread{
                                 }
                                 break;
 
-                            case 3:
+                            case 4:
                                 nombre = (String)dataInputStream.readUTF();
                                 user=(String)dataInputStream.readUTF();
                                 pass=(String)dataInputStream.readUTF();
                                 nt=(String)dataInputStream.readUTF();
                                 c=(String)dataInputStream.readUTF();
                                 matricula= (int)dataInputStream.readInt();
-                                modeloAdministrador.setMsg("si jalo");
+                                
                                 Maestro maestro = new Maestro(nombre, user, pass,matricula,nt,c);
-                                modeloAdministrador.setMsg("si jalo ahora si");
+                                
                                 existe = modeloMaestro.buscarMaestro(user);
                                 if(!existe){
                                     modeloMaestro.alta(maestro);
@@ -162,10 +162,10 @@ public class ClientConnection extends Thread{
                                 }else{
                                     dataOutputStream.writeInt(0);//ya existe
                                 }
-                                modeloAdministrador.setMsg("si jalo nadadadadad");
+                                
                             break;
 
-                            case 4:
+                            case 5:
                                 user=(String)dataInputStream.readUTF();
                                 existe = modeloMaestro.buscarMaestro(user);
                                 if(existe){
@@ -175,7 +175,9 @@ public class ClientConnection extends Thread{
                                 }else{
                                     dataOutputStream.writeInt(0);//no existe el admin
                                 }
-                            break;    
+                            break;  
+
+                             
 
                             case 9999://Cerrar sesion
                                 break;

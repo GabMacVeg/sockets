@@ -29,8 +29,7 @@ public class AltaMaestro{
     }
 
     public AltaMaestro(Scanner sc){
-        String nombre, user, pass,nt,c;
-        int matricula;
+       
         System.out.print("Nombre: ");        
         nombre = sc.nextLine();
         nombre = sc.nextLine();
