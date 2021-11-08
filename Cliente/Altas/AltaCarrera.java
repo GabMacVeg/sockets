@@ -6,15 +6,17 @@ import java.util.Scanner;
 
 public class AltaCarrera{
 
-  
-
-    public  Carrera getCarrera(){
-        return this.carrera;
+    String nombre;
+        int matricula;
+    public String getNombre(){
+        return this.nombre;
+    }
+    public int getMatricula(){
+        return this.matricula;
     }
 
     public  AltaCarrera(Scanner sc){
-        String nombre;
-        int matricula;
+        
         System.out.print("Nombre: ");        
         nombre = sc.nextLine();
         nombre = sc.nextLine();

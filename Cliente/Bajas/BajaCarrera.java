@@ -1,8 +1,8 @@
 
-package Vista.Bajas;
+package Bajas;
 
 import java.util.Scanner;
-import Dataobjects.Carrera;
+
 
 public class BajaCarrera{
     private Scanner sc;

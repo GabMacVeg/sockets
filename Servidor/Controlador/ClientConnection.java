@@ -108,7 +108,7 @@ public class ClientConnection extends Thread{
     public void run(){        
         String user,pass,nombre,nt,c;
         boolean existe;
-        int opcion,matricula;
+        int opcion,matricula,semestre;
         try {
             do{
                 opcion = (int)dataInputStream.readInt();//La instruccion que desea hacer
@@ -177,12 +177,97 @@ public class ClientConnection extends Thread{
                                 }
                             break;  
 
+                            case 6:
+                                nombre = (String)dataInputStream.readUTF();
+                                user=(String)dataInputStream.readUTF();
+                                pass=(String)dataInputStream.readUTF();
+                                nt=(String)dataInputStream.readUTF();
+                                c=(String)dataInputStream.readUTF();
+                                matricula= (int)dataInputStream.readInt();
+                                semestre= (int)dataInputStream.readInt();
+                                
+                                Alumno alumno = new Alumno(nombre, user, pass,matricula,semestre,nt,c);
+                                
+                                existe = modeloAlumno.buscarAlumno(user);
+                                if(!existe){
+                                    modeloAlumno.alta(alumno);
+                                    dataOutputStream.writeInt(1);//se creo el alumno
+                                }else{
+                                    dataOutputStream.writeInt(0);//ya existe
+                                }
+                                
+                            break;
+
+                            case 7:
+                                user=(String)dataInputStream.readUTF();
+                                existe = modeloAlumno.buscarAlumno(user);
+                                if(existe){
+                                    //Existe el usuario
+                                    modeloAlumno.eliminar(user);
+                                    dataOutputStream.writeInt(1);//se elimino el admin
+                                }else{
+                                    dataOutputStream.writeInt(0);//no existe el admin
+                                }
+                            break;
+
+                            case 8:
+                                nombre=(String)dataInputStream.readUTF();
+                                semestre= (int)dataInputStream.readInt();
+                                matricula= (int)dataInputStream.readInt();
+                                Materia materia = new Materia(nombre,matricula,semestre);
+                                existe = modeloMateria.buscarMateria(nombre);
+                                if(!existe){
+                                    modeloMateria.altaMateria(materia);
+                                    dataOutputStream.writeInt(1);//se creo la materia
+                                }else{
+                                    dataOutputStream.writeInt(0);//ya existe
+                                }
+                            break;
+
+                            case 9:
+                                nombre=(String)dataInputStream.readUTF();
+                                existe = modeloMateria.buscarMateria(nombre);
+                                if(existe){
+                                    //Existe el usuario
+                                    modeloMateria.eliminar(nombre);
+                                    dataOutputStream.writeInt(1);//se elimino la materia
+                                }else{
+                                    dataOutputStream.writeInt(0);//no existe la  materia
+                                }
+                            break;
+
+                            case 11:
+                                nombre=(String)dataInputStream.readUTF();                                
+                                matricula= (int)dataInputStream.readInt();
+                                Carrera carrera = new Carrera(nombre,matricula);
+                                existe = modeloCarrera.buscarCarrera(nombre);
+                                if(!existe){
+                                    modeloCarrera.altacarrera(carrera);
+                                    dataOutputStream.writeInt(1);//se creo la carrera
+                                }else{
+                                    dataOutputStream.writeInt(0);//ya existe
+                                }
+                            break;
+
+                            case 12:
+                                nombre=(String)dataInputStream.readUTF();
+                                existe = modeloCarrera.buscarCarrera(nombre);
+                                if(existe){
+                                    //Existe el usuario
+                                    modeloCarrera.eliminar(nombre);
+                                    dataOutputStream.writeInt(1);//se elimino la carrera
+                                }else{
+                                    dataOutputStream.writeInt(0);//no existe la  carrera
+                                }
+                            break;
+
                              
 
                             case 9999://Cerrar sesion
                                 break;
                         }
                     break;
+
                     case 2:
                     break;
                     default:

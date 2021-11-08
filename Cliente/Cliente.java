@@ -13,6 +13,15 @@ import Bajas.BajaAdministrador;
 import Altas.AltaMaestro;
 import Bajas.BajaMaestro;
 
+import Altas.AltaAlumno;
+import Bajas.BajaAlumno;
+
+import Altas.AltaMateria;
+import Bajas.BajaMateria;
+
+import Altas.AltaCarrera;
+import Bajas.BajaCarrera;
+
 import Menus.MenuAdministrador;
 import Menus.MenuAlumno;
 import Menus.MenuMaestro;
@@ -123,22 +132,87 @@ public class Cliente{
                                 }  
                             break;
                             case 6://alta alumnos
-                            
+                                dos.writeInt(6);
+                                
+                                AltaAlumno altaAlumno = new AltaAlumno(sc);
+                                dos.writeUTF(altaAlumno.getNombre());
+                                dos.writeUTF(altaAlumno.getUser());
+                                dos.writeUTF(altaAlumno.getPass());
+                                dos.writeUTF(altaAlumno.getNTelefonico());
+                                dos.writeUTF(altaAlumno.getCorreo());
+                                dos.writeInt(altaAlumno.getMatricula());
+                                dos.writeInt(altaAlumno.getSemestre());
+                                opcion=(int)dis.readInt();
+                                if(opcion==0){
+                                    altaAlumno.setMsg("El maestro ya existe");
+                                }else{
+                                    altaAlumno.setMsg("Maestro creado");
+                                }  
                             break;
                             case 7:// baja alumnos
-                            
+                                dos.writeInt(7);
+                                BajaAlumno bajaAlumno =  new BajaAlumno(sc);
+                                bajaAlumno.show();
+                                dos.writeUTF(bajaAlumno.getAlumno());
+                                opcion=(int)dis.readInt();
+                                if(opcion==0){
+                                    bajaAlumno.setMsg("El alumno no existe");
+                                }else{
+                                    bajaAlumno.setMsg("Alumno eliminado");
+                                }  
                             break;
                             case 8://alta materias
-                           
+                                dos.writeInt(8);
+                                AltaMateria altaMat = new AltaMateria(sc);
+                                dos.writeUTF(altaMat.getNombre());
+                                dos.writeInt(altaMat.getSemestre());
+                                dos.writeInt(altaMat.getMatricula());
+                                opcion=(int)dis.readInt();
+                                if(opcion==0){
+                                    altaMat.setMsg("La materia ya existe");
+                                }else{
+                                    altaMat.setMsg("Materia creada");
+                                }  
                             break;
                             case 9://baja materias
-                           
+                                dos.writeInt(9);
+                                BajaMateria bajaMat =  new BajaMateria(sc);
+                                bajaMat.show();
+                                dos.writeUTF(bajaMat.getMateria());
+                                opcion=(int)dis.readInt();
+                                if(opcion==0){
+                                    bajaMat.setMsg("La materia no existe");
+                                }else{
+                                    bajaMat.setMsg("Materia eliminada");
+                                }  
                             break;
                             case 10://lista materias
-                            
+                                
                             break;
+                            case 11://alta carreras
+                                dos.writeInt(11);
+                                AltaCarrera altaCar = new AltaCarrera(sc);
+                                dos.writeUTF(altaCar.getNombre());
+                                dos.writeInt(altaCar.getMatricula());
+                                opcion=(int)dis.readInt();
+                                if(opcion==0){
+                                    altaCar.setMsg("La carrera ya existe");
+                                }else{
+                                    altaCar.setMsg("Carrera creada");
+                                }  
+                            break;
+
                             case 12://baja carreras
-                           
+                                dos.writeInt(12);
+                                BajaCarrera bajaCar =  new BajaCarrera(sc);
+                                bajaCar.show();
+                                dos.writeUTF(bajaCar.getNombre());
+                                opcion=(int)dis.readInt();
+                                if(opcion==0){
+                                    bajaCar.setMsg("La carrera no existe");
+                                }else{
+                                    bajaCar.setMsg("Carrera eliminada");
+                                }  
                             break;
                             case 13://lista carreras
                             
