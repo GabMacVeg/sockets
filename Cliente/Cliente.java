@@ -50,7 +50,7 @@ public class Cliente{
                     login.setMsg("Login incorrecto");
                     break;
                 case 1:
-                    MenuAdministrador menuAdmin = new MenuAdministrador(sc);
+                    MenuAdministrador menuAdmi = new MenuAdministrador(sc);
                     do{
                         menuAdmi.show();
                         switch(menuAdmi.getOpcion()){
