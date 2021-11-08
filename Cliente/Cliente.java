@@ -29,6 +29,7 @@ import Menus.MenuAlumno;
 import Menus.MenuMaestro;
 
 public class Cliente{
+    private int cmd;
     private Scanner sc =  new Scanner(System.in);
     private Socket socket_client;
     private OutputStream os;
@@ -57,10 +58,11 @@ public class Cliente{
         Login login = new Login(sc);
         do{
             login.show(); 
-            dos.writeInt(1000);//Un uno, significa login
+            dos.writeInt(0);//Un uno, significa login
             dos.writeUTF(login.getUser());
             dos.writeUTF(login.getPass());
-            int cmd = (int)dis.readInt();
+            System.out.print("aqui si jala");
+            cmd = (int)dis.readInt();
             switch(cmd){
                 case 0:
                     login.setMsg("Login incorrecto");
@@ -223,10 +225,13 @@ public class Cliente{
                             
                             break;
                             case 20://salir
+                            dos.writeInt(20);
+                            
                             break;
                             default://opcion incorrecta
                             menuAdmi.setMsg("Opcion incorrecta");
                         }
+                        cmd=(int)dis.readInt();;
 
                     }while(menuAdmi.getOpcion()!=20);
                     break;
@@ -277,6 +282,10 @@ public class Cliente{
                     MenuAlumno menuAlu = new MenuAlumno(sc);
                     menuAlu.show();
                     break;
+
+                default:
+
+                break;    
             }
 
         }while(true);

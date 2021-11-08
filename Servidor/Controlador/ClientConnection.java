@@ -98,6 +98,7 @@ public class ClientConnection extends Thread{
                         //System.exit(1);
                     }else{
                         dataOutputStream.writeInt(0);
+                        opcionMenu=0;
                     }
                 }
             }        
@@ -262,15 +263,17 @@ public class ClientConnection extends Thread{
                                 }
                             break;
 
-                             
-
-                            case 9999://Cerrar sesion
-                                break;
+                            case 20://Cerrar sesion
+                            dataOutputStream.writeInt(1000);
+                            break;
                         }
                     break;
 
                     case 2:
                     switch(opcion){
+                        case 0:
+                        opcionMenu=0;
+                        break;
                         case 1://alta calificaciones
                         materia=(String)dataInputStream.readUTF();
                         nombre=(String)dataInputStream.readUTF();
@@ -306,14 +309,12 @@ public class ClientConnection extends Thread{
                     
                     break;
                 
-
-
                     default:
                     this.login();
                     break;
                 }
                 
-            }while(opcion!=9999);        
+            }while(opcion!=20);        
 
             closeConnection(); 
         } catch (Exception e) {
