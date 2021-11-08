@@ -22,6 +22,8 @@ import Bajas.BajaMateria;
 import Altas.AltaCarrera;
 import Bajas.BajaCarrera;
 
+import Altas.Calificaciones;
+
 import Menus.MenuAdministrador;
 import Menus.MenuAlumno;
 import Menus.MenuMaestro;
@@ -55,7 +57,7 @@ public class Cliente{
         Login login = new Login(sc);
         do{
             login.show(); 
-            dos.writeInt(1);//Un uno, significa login
+            dos.writeInt(1000);//Un uno, significa login
             dos.writeUTF(login.getUser());
             dos.writeUTF(login.getPass());
             int cmd = (int)dis.readInt();
@@ -230,8 +232,47 @@ public class Cliente{
                     break;
                 case 2:
                     MenuMaestro menuMae = new MenuMaestro(sc);
-                    menuMae.show();
-                    break;
+                    do{
+                        menuMae.show();
+                        switch(menuMae.getOpcion()){
+                        case 1://alta calificaciones
+                            dos.writeInt(1);
+                            Calificaciones calificacion = new Calificaciones(sc);
+                            calificacion.show();
+                            dos.writeUTF(calificacion.getMateria());
+                            dos.writeUTF(calificacion.getAlumno());
+                            dos.writeFloat(calificacion.getCalificacion());
+                            opcion=(int)dis.readInt();
+                            if(opcion==0){
+                                calificacion.setMsg("La materia o el alumno no existe");
+                            }else{
+                                calificacion.setMsg("Calificacion creada");
+                            }        
+
+                        break;
+
+                        case 2://corereccion calificaciones
+                        break;
+
+                        case 3://seleccioanr materias
+                        break;
+
+                        case 4://quitar materias
+                        break;
+
+                        case 5://ver horario
+                        break;
+
+                        case 6://ver alumnos
+                        break;
+
+                        case 7://ver datos
+                        break;
+                    }
+
+                    }while(menuMae.getOpcion()!=20);
+                break;    
+                    
                 case 3:
                     MenuAlumno menuAlu = new MenuAlumno(sc);
                     menuAlu.show();

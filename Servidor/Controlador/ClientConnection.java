@@ -106,9 +106,10 @@ public class ClientConnection extends Thread{
     }
     
     public void run(){        
-        String user,pass,nombre,nt,c;
+        String user,pass,nombre,nt,c,materia;
         boolean existe;
         int opcion,matricula,semestre;
+        float calificacion;
         try {
             do{
                 opcion = (int)dataInputStream.readInt();//La instruccion que desea hacer
@@ -214,10 +215,10 @@ public class ClientConnection extends Thread{
                                 nombre=(String)dataInputStream.readUTF();
                                 semestre= (int)dataInputStream.readInt();
                                 matricula= (int)dataInputStream.readInt();
-                                Materia materia = new Materia(nombre,matricula,semestre);
+                                Materia materiaN = new Materia(nombre,matricula,semestre);
                                 existe = modeloMateria.buscarMateria(nombre);
                                 if(!existe){
-                                    modeloMateria.altaMateria(materia);
+                                    modeloMateria.altaMateria(materiaN);
                                     dataOutputStream.writeInt(1);//se creo la materia
                                 }else{
                                     dataOutputStream.writeInt(0);//ya existe
@@ -269,7 +270,44 @@ public class ClientConnection extends Thread{
                     break;
 
                     case 2:
+                    switch(opcion){
+                        case 1://alta calificaciones
+                        materia=(String)dataInputStream.readUTF();
+                        nombre=(String)dataInputStream.readUTF();
+                        calificacion= (float)dataInputStream.readFloat();
+                        existe=modeloHorarioAlumno.buscarMateria(materia,nombre);
+                        if(existe){
+                            modeloHorarioAlumno.buscarMateriaC(materia,nombre,calificacion);
+                            dataOutputStream.writeInt(1);//se agrego la calificacion
+                        }else{
+                            dataOutputStream.writeInt(0);//no se pudo
+                        }
+
+                        break;
+
+                        case 2://corereccion calificaciones
+                        break;
+
+                        case 3://seleccioanr materias
+                        break;
+
+                        case 4://quitar materias
+                        break;
+
+                        case 5://ver horario
+                        break;
+
+                        case 6://ver alumnos
+                        break;
+
+                        case 7://ver datos
+                        break;
+                    }
+                    
                     break;
+                
+
+
                     default:
                     this.login();
                     break;
