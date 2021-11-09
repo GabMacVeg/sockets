@@ -18,7 +18,7 @@ public class Login{
     public void show(){
         System.out.print("Usuario: ");
         user = sc.nextLine();
-        user = sc.nextLine();
+        
         System.out.print("Contrasena: ");
         pass = sc.nextLine();
     }
