@@ -103,7 +103,7 @@ public class ClientConnection extends Thread{
 
     public void run(){        
         String user,pass,nombre,nt,c,materia;
-        boolean existe;
+        boolean existe,existe1;
         int opcion,matricula,semestre,opcionMenu;
         float calificacion;
 
@@ -301,6 +301,21 @@ public class ClientConnection extends Thread{
                         case 3://seleccioanr materias
                         dataOutputStream.writeUTF(nombreM);
                         dataOutputStream.writeInt(identificadorM);
+                        materia=(String)dataInputStream.readUTF();
+                        HorarioMaestro horarioMaestro = new HorarioMaestro(nombreM,materia);
+                        existe = modeloMateria.buscarMateria(materia);
+                            if(existe){
+                                existe1= modeloHorarioMaestro.buscarMateria(materia,nombreM);
+                                if(!existe1){
+                                    modeloHorarioMaestro.altaMateria(horarioMaestro); 
+                                    dataOutputStream.writeInt(1);//materia agregada
+
+                                }else{
+                                    dataOutputStream.writeInt(0);//la materia ya estaba
+                            }
+                            }else{  
+                            dataOutputStream.writeInt(2);//no exuste la materia
+                            }
                         break;
 
                         case 4://quitar materias

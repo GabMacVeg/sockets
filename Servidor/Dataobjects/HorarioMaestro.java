@@ -20,5 +20,7 @@ public class HorarioMaestro{
     public String toString(){
         return this.nombreMaestro + "\t" + this.materia;
     }
-    
+    public void setMsg(String msg){
+        System.out.println(msg);
+     }
 }

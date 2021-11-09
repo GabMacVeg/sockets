@@ -288,8 +288,15 @@ public class Cliente{
                             String nombreM=dis.readUTF();
                             int identificadorM=(int)dis.readInt();
                             SeleccionMateria seleccionMateria = new SeleccionMateria(sc,nombreM);
-
-
+                            dos.writeUTF(seleccionMateria.getNombreMateria());
+                            opcion=(int)dis.readInt();
+                            if(opcion==0){
+                                seleccionMateria.setMsg("La materia ya existia en el horario");
+                            }else if(opcion==1){
+                                seleccionMateria.setMsg("Materia agregada");
+                            }else{
+                                seleccionMateria.setMsg("La materia no existe");
+                            }
 
                         break;
 

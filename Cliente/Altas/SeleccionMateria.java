@@ -7,7 +7,10 @@ public class SeleccionMateria{
 
     String materia,nombreM;
 
-    
+    public String getNombreMateria(){
+        return this.materia;
+    }
+
 
     public SeleccionMateria(Scanner sc,String nombreM){
     
