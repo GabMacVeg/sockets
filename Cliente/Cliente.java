@@ -70,7 +70,7 @@ public class Cliente{
                 case 0:
                     login.setMsg("Login incorrecto");
                 break;
-                case 1:
+                case 1://administrador
                     MenuAdministrador menuAdmi = new MenuAdministrador(sc);
                     do{
                         menuAdmi.show();
@@ -244,7 +244,7 @@ public class Cliente{
                         }
                     }while(menuAdmi.getOpcion()!=20);
                 break;  
-                case 2: 
+                case 2: //maestros
                     MenuMaestro menuMae = new MenuMaestro(sc);
                     do{
                         menuMae.show();
@@ -301,9 +301,23 @@ public class Cliente{
                         break;
 
                         case 4://quitar materias
+                            dos.writeInt(4);
+                            dos.writeInt(2);
+                            QuitarMateria quitarmat = new QuitarMateria(sc);
+                            quitarmat.show();
+                            dos.writeUTF(quitarmat.getMateria());
+                            opcion=(int)dis.readInt();
+                            if(opcion==0){
+                                quitarmat.setMsg("La materia no existe en  el horario");
+                            }else if(opcion==1){
+                                quitarmat.setMsg("Materia eliminada");
+                            }else{
+                                quitarmat.setMsg("La materia no existe");
+                            }
                         break;
 
                         case 5://ver horario
+
                         break;
 
                         case 6://ver alumnos

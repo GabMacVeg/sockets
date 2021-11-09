@@ -319,6 +319,20 @@ public class ClientConnection extends Thread{
                         break;
 
                         case 4://quitar materias
+                            materia=(String)dataInputStream.readUTF();
+                            existe = modeloMateria.buscarMateria(materia);
+                            if(existe){
+                            existe1= modeloHorarioMaestro.buscarMateria(materia,nombreM);
+                            if(existe1){
+                                modeloHorarioMaestro.eliminar(materia);
+                                dataOutputStream.writeInt(1);//materia eliminada
+                            }else{
+                                dataOutputStream.writeInt(0);//materia no existe en el horario
+                            }
+                            }else{  
+                                dataOutputStream.writeInt(2);//materia inexistente
+
+                            }
                         break;
 
                         case 5://ver horario

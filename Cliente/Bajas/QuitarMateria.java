@@ -1,7 +1,7 @@
-package Vista.Bajas;
+package Bajas;
 
 import java.util.Scanner;
-import Dataobjects.HorarioMaestro;
+
 
 public class QuitarMateria{
     private Scanner sc;
