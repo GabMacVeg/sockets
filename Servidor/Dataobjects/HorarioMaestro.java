@@ -16,8 +16,7 @@ public class HorarioMaestro{
         this.nombreMaestro = nombreMaestro;
         this.materia=materia;
     }
-
-    public String toString(){
+    public String getDatos(){
         return this.nombreMaestro + "\t" + this.materia;
     }
     public void setMsg(String msg){
