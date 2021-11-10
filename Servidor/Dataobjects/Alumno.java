@@ -43,7 +43,7 @@ public class Alumno{
         this.semestre=semestre;
     }
 
-    public String toString(){
+    public String getTodo(){
         return this.user + "\t" + this.nombre + "\t" + this.matricula ;
     }
 }

@@ -37,7 +37,7 @@ public class Maestro{
         this.Correo=Correo;
     }
 
-    public String toString(){
+    public String getTodo(){
         return this.user + "\t" + this.nombre + "\t" + this.matricula ;
     }
 }

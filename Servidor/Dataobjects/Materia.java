@@ -20,8 +20,10 @@ public class Materia{
         this.matricula = matricula;
         this.semestre = semestre;
     }
-    public String toString(){
+    
+    public String getTodo(){
         return this.nombre + "\t" + this.matricula + "\t" + this.semestre;
     }
+
 
 }
