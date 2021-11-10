@@ -472,6 +472,22 @@ public class Cliente{
                             break;
 
                             case 2://ver horario y calificaciones
+                                dos.writeInt(2);
+                                dos.writeInt(3);   
+
+                                size = (int)dis.readInt();
+                                
+
+                                for(int i=0; i < size; i++){
+                                    String nom1 = (String)dis.readUTF();
+                                    if(nom1.equals("")==true){
+                                        
+                                    }
+                                    else{
+                                        System.out.println(nom1);
+                                    }
+                                    
+                                }
 
                             break;
 

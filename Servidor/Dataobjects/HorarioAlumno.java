@@ -32,6 +32,9 @@ public class HorarioAlumno{
         this.calificacion=0;
     }
 
+     public String getDatos(){
+        return this.nombreAlumno + "\t" + this.materia+ "\t" + this.nombreMaestro+ "\t" + this.calificacion;
+    }
     public String toString(){
         return this.nombreMaestro + "\t" + this.materia+ "\t" + this.calificacion;
     }

@@ -499,6 +499,17 @@ public class ClientConnection extends Thread{
                             break;
 
                             case 2://ver horarios y calififcaciones
+                                ArrayList<HorarioAlumno> horarioAlu = (modeloHorarioAlumno.getHorario());
+
+                                dataOutputStream.writeInt(horarioAlu.size());
+
+                                for(int i=0; i<horarioAlu.size(); i++){
+                                    if(horarioAlu.get(i).getnombreAlumno().equals(nombreA)){
+                                        dataOutputStream.writeUTF(horarioAlu.get(i).toString());
+                                    }else{ 
+                                        dataOutputStream.writeUTF("");
+                                    }
+                                }
                             break;
 
                             case 3://ver datos
