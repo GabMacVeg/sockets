@@ -40,4 +40,7 @@ public class Maestro{
     public String getTodo(){
         return this.user + "\t" + this.nombre + "\t" + this.matricula ;
     }
+     public String getDatos(){
+         return this.nombre+"\t"+this.user+"\t"+this.matricula+"\t"+this.NTelefonico+"\t"+this.Correo;
+    }
 }

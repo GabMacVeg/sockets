@@ -303,17 +303,24 @@ public class Cliente{
                                 }  
                             break;
                             case 13://lista carreras
-                            
+                                dos.writeInt(13);
+                                dos.writeInt(1);                                
+                                size = (int)dis.readInt();
+                                System.out.println(size);
+
+                                for(int i=0; i < size; i++){
+                                    String nom1 = (String)dis.readUTF();
+                                    System.out.println(nom1);
+                                }
                             break;
                             case 14://Ver DATOS
-                            
+                                dos.writeInt(14);
+                                dos.writeInt(1); 
+                                String datos = (String)dis.readUTF();
+                                System.out.println(datos);
                             break;
-
-                            
                             case 20://salir                    
                             break;
-                            
-
                         }
                     }while(menuAdmi.getOpcion()!=20);
                 break;  
@@ -397,6 +404,10 @@ public class Cliente{
                         break;
 
                         case 7://ver datos
+                            dos.writeInt(7);
+                            dos.writeInt(2); 
+                            String datos = (String)dis.readUTF();
+                            System.out.println(datos);
                         break;
                     }
 
@@ -431,6 +442,10 @@ public class Cliente{
                             break;
 
                             case 3://ver datos
+                            dos.writeInt(3);
+                            dos.writeInt(3); 
+                            String datos = (String)dis.readUTF();
+                            System.out.println(datos);
                             break;
                         }
                     }while(menuAlu.getOpcion()!=20);

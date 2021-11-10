@@ -41,4 +41,7 @@ public class Administrador{
     public String getTodo(){
         return this.user + "\t" + this.nombre;
     }
+    public String getDatos(){
+         return this.nombre+"\t"+this.user+"\t"+this.matricula+"\t"+this.NTelefonico+"\t"+this.Correo;
+    }
 }

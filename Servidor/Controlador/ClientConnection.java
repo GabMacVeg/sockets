@@ -26,6 +26,7 @@ import Dataobjects.HorarioAlumno;
 import Dataobjects.HorarioMaestro;
 import Dataobjects.Materia;
 
+
 public class ClientConnection extends Thread{
 
 
@@ -116,8 +117,7 @@ public class ClientConnection extends Thread{
                     //menu del administrador con su switch 1 (ADMIN)
                     case 1://admin
                         switch(opcion){   
-                            case 1://Alta admin
-                            System.out.print("llego");
+                            case 1://Alta admin                            
                                 nombre = (String)dataInputStream.readUTF();
                                 user=(String)dataInputStream.readUTF();
                                 pass=(String)dataInputStream.readUTF();
@@ -207,8 +207,6 @@ public class ClientConnection extends Thread{
                                         }
                                     break;
                                     case 5://Salir
-                                    break;
-                                    default:
                                     break;
                                 }                             
                             break;
@@ -337,6 +335,28 @@ public class ClientConnection extends Thread{
                                     dataOutputStream.writeInt(0);//no existe la  carrera
                                 }
                             break;
+                            case 13://lista carreras
+                                ArrayList<Carrera> carreras = (modeloCarrera.getCarreras());
+                                dataOutputStream.writeInt((carreras.size()));
+
+                                for(int i=0; i< carreras.size(); i++){
+                                    dataOutputStream.writeUTF(carreras.get(i).getTodo());
+                                }
+                            break;
+                            case 14://ver datos
+                                
+                                ArrayList<Administrador> admin = (modeloAdministrador.getAdministradores()); 
+                                                               
+                                for(int i=0; i<admin.size(); i++){
+                                    if(admin.get(i).getNombre().equals(nombreAd)){
+                                         dataOutputStream.writeUTF(admin.get(i).getDatos());
+                                    }else{
+                                        dataOutputStream.writeUTF("No se encontro datos");
+                                    }
+                                }
+                               
+                            break;
+
 
                             case 50:
                             System.out.println("Entro al 50 en la opcion ");
@@ -417,6 +437,16 @@ public class ClientConnection extends Thread{
                         break;
 
                         case 7://ver datos
+                            ArrayList<Maestro> mae = (modeloMaestro.getMaestros()); 
+                                                               
+                                for(int i=0; i<mae.size(); i++){
+                                    if(mae.get(i).getNombre().equals(nombreM)){
+                                         dataOutputStream.writeUTF(mae.get(i).getDatos());
+                                    }else{
+                                        dataOutputStream.writeUTF("No se encontro datos");
+                                    }
+                                }
+
                         break;
                     }
                     break;
@@ -448,6 +478,15 @@ public class ClientConnection extends Thread{
                             break;
 
                             case 3://ver datos
+                                ArrayList<Alumno> alu = (modeloAlumno.getAlumnos()); 
+                                                               
+                                for(int i=0; i<alu.size(); i++){
+                                    if(alu.get(i).getNombre().equals(nombreA)){
+                                         dataOutputStream.writeUTF(alu.get(i).getDatos());
+                                    }else{
+                                        dataOutputStream.writeUTF("No se encontro datos");
+                                    }
+                                }
                             break;
                         }
 

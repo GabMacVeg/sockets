@@ -16,7 +16,7 @@ public class Carrera{
         this.matricula = matricula;
     }
 
-    public String toString(){
+    public String getTodo(){
         return this.nombre + "\t" + this.matricula;
     }
 }
