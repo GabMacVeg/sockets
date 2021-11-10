@@ -167,8 +167,7 @@ public class Cliente{
                                             }
                                             
                                         break;
-                                        case 5://Salir
-                                            
+                                        case 5://Salir                                            
                                         break;
                                     }         
                                 
@@ -397,10 +396,44 @@ public class Cliente{
                         break;
 
                         case 5://ver horario
+                            dos.writeInt(5);
+                            dos.writeInt(2);   
 
+                            size = (int)dis.readInt();
+
+                            for(int i=0; i < size; i++){
+                                String nom1 = (String)dis.readUTF();
+                                if(nom1.equals("")==true){
+                                    
+                                }
+                                else{
+                                    System.out.println(nom1);
+                                }
+                                
+                            }
                         break;
 
                         case 6://ver alumnos
+                            dos.writeInt(6);
+                            dos.writeInt(2);  
+                            System.out.println("De que materia desea ver los alumnos?"); 
+                            String materia; 
+                            materia = sc.nextLine();
+                            materia = sc.nextLine();     
+                            dos.writeUTF(materia);      
+
+                            size = (int)dis.readInt();
+
+                            for(int i=0; i < size; i++){
+                                String nom1 = (String)dis.readUTF();
+                                if(nom1.equals("")==true){
+                                    
+                                }
+                                else{
+                                    System.out.println(nom1);
+                                }
+                                
+                            }
                         break;
 
                         case 7://ver datos
@@ -439,6 +472,7 @@ public class Cliente{
                             break;
 
                             case 2://ver horario y calificaciones
+
                             break;
 
                             case 3://ver datos

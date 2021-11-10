@@ -431,9 +431,33 @@ public class ClientConnection extends Thread{
                         break;
 
                         case 5://ver horario
+                            ArrayList<HorarioMaestro> horarioMaestro1 = (modeloHorarioMaestro.getHorario());
+                            dataOutputStream.writeInt((horarioMaestro1.size()));
+                            System.out.println(nombreM);
+                            int tam = horarioMaestro1.size();
+                            for(int i=0; i<horarioMaestro1.size(); i++){
+                                if(horarioMaestro1.get(i).getnombreMaestro().equals(nombreM)){
+                                     dataOutputStream.writeUTF(horarioMaestro1.get(i).getDatos());
+                                }else{ 
+                                    dataOutputStream.writeUTF("");
+                                }
+                            }
                         break;
 
                         case 6://ver alumnos
+                            materia=(String)dataInputStream.readUTF();
+                            ArrayList<HorarioAlumno> horarioalu = (modeloHorarioAlumno.getHorario()); 
+                            dataOutputStream.writeInt((horarioalu.size()));
+                            existe = modeloHorarioMaestro.buscarMateria(materia, nombreM);
+                            if(existe){
+                                for(int i=0; i<horarioalu.size(); i++){
+                                    if(horarioalu.get(i).getMateria().equals(materia)){
+                                        dataOutputStream.writeUTF(horarioalu.get(i).getnombreAlumno()+ "\t" +horarioalu.get(i).getMateria());                
+                                    }else{
+                                        dataOutputStream.writeUTF("");                
+                                    }
+                                }
+                            }
                         break;
 
                         case 7://ver datos
