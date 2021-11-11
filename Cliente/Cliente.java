@@ -315,8 +315,20 @@ public class Cliente{
                             case 14://Ver DATOS
                                 dos.writeInt(14);
                                 dos.writeInt(1); 
-                                String datos = (String)dis.readUTF();
-                                System.out.println(datos);
+
+                                size = (int)dis.readInt();
+                                
+
+                                for(int i=0; i < size; i++){
+                                    String nom1 = (String)dis.readUTF();
+                                    if(nom1.equals("")==true){
+                                        
+                                    }
+                                    else{
+                                        System.out.println(nom1);
+                                    }
+                                    
+                                }
                             break;
                             case 20://salir                    
                             break;
@@ -439,8 +451,20 @@ public class Cliente{
                         case 7://ver datos
                             dos.writeInt(7);
                             dos.writeInt(2); 
-                            String datos = (String)dis.readUTF();
-                            System.out.println(datos);
+
+                            size = (int)dis.readInt();
+                                
+
+                                for(int i=0; i < size; i++){
+                                    String nom1 = (String)dis.readUTF();
+                                    if(nom1.equals("")==true){
+                                        
+                                    }
+                                    else{
+                                        System.out.println(nom1);
+                                    }
+                                    
+                                }
                         break;
                     }
 
@@ -455,13 +479,15 @@ public class Cliente{
                             case 1://seleccion materia
                                 dos.writeInt(1);
                                 dos.writeInt(3);
-                                String nombreA=dis.readUTF();
-                                int identificadorA=(int)dis.readInt();
-                                SeleccionMateriaAlumno seleccionMateriaAlu = new SeleccionMateriaAlumno(sc,nombreA);
+                                //String nombreA=dis.readUTF();
+                                //int identificadorA=(int)dis.readInt();
+                                SeleccionMateriaAlumno seleccionMateriaAlu = new SeleccionMateriaAlumno(sc);
                                 dos.writeUTF(seleccionMateriaAlu.getNombreProfe());
+                                System.out.println(seleccionMateriaAlu.getNombreProfe());
                                 dos.writeUTF(seleccionMateriaAlu.getMateria());
-
+                                System.out.println(seleccionMateriaAlu.getMateria());
                                 opcion=(int)dis.readInt();
+                                System.out.println(opcion);
                                 if(opcion==0){
                                     seleccionMateriaAlu.setMsg("La materia ya existia en el horario");
                                 }else if(opcion==1){
@@ -494,9 +520,20 @@ public class Cliente{
                             case 3://ver datos
                             dos.writeInt(3);
                             dos.writeInt(3); 
-                            String datos = (String)dis.readUTF();
-                            System.out.println(datos);
-                            break;
+
+                            size = (int)dis.readInt();
+                                
+
+                                for(int i=0; i < size; i++){
+                                    String nom1 = (String)dis.readUTF();
+                                    if(nom1.equals("")==true){
+                                        
+                                    }
+                                    else{
+                                        System.out.println(nom1);
+                                    }
+                                    
+                                }
                         }
                     }while(menuAlu.getOpcion()!=20);
                 break;

@@ -29,7 +29,7 @@ public class HorarioAlumno{
         this.materia=materia;
         this.nombreAlumno=nombreAlumno;
         this.nombreMaestro=nombreMaestro;
-        this.calificacion=0;
+        this.calificacion=calif;
     }
 
      public String getDatos(){

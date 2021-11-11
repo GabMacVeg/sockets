@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SeleccionMateriaAlumno{
 
-    String materia,nombreProfe,nombreA;
+    String materia,nombreProfe;
 
     public String getNombreProfe(){
         return this.nombreProfe;
@@ -14,8 +14,7 @@ public class SeleccionMateriaAlumno{
     }
 
 
-    public SeleccionMateriaAlumno(Scanner sc,String nombreA){
-        this.nombreA = nombreA; 
+    public SeleccionMateriaAlumno(Scanner sc){
         System.out.print("Nombre Materia: ");        
         materia = sc.nextLine();
         materia = sc.nextLine(); 

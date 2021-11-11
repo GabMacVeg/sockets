@@ -38,7 +38,6 @@ public class ModeloHorarioAlumno{
     public boolean buscarMateria(String nombre,String nombreA){
         for(int i=0; i<this.horarioAlumno.size(); i++){
             if(this.horarioAlumno.get(i).getMateria().equals(nombre) && this.horarioAlumno.get(i).getnombreAlumno().equals(nombreA)){
-                identificador=i;
                 return true;
             }
         }

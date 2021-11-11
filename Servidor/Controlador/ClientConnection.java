@@ -345,13 +345,15 @@ public class ClientConnection extends Thread{
                             break;
                             case 14://ver datos
                                 
-                                ArrayList<Administrador> admin = (modeloAdministrador.getAdministradores()); 
-                                                               
+                                ArrayList<Administrador> admin = (modeloAdministrador.getAdministradores());
+
+                                dataOutputStream.writeInt((admin.size()));
+                                
                                 for(int i=0; i<admin.size(); i++){
                                     if(admin.get(i).getNombre().equals(nombreAd)){
                                          dataOutputStream.writeUTF(admin.get(i).getDatos());
                                     }else{
-                                        dataOutputStream.writeUTF("No se encontro datos");
+                                        dataOutputStream.writeUTF("");
                                     }
                                 }
                                
@@ -462,12 +464,12 @@ public class ClientConnection extends Thread{
 
                         case 7://ver datos
                             ArrayList<Maestro> mae = (modeloMaestro.getMaestros()); 
-                                                               
+                            dataOutputStream.writeInt((mae.size()));           
                                 for(int i=0; i<mae.size(); i++){
                                     if(mae.get(i).getNombre().equals(nombreM)){
                                          dataOutputStream.writeUTF(mae.get(i).getDatos());
                                     }else{
-                                        dataOutputStream.writeUTF("No se encontro datos");
+                                        dataOutputStream.writeUTF("");
                                     }
                                 }
 
@@ -478,14 +480,14 @@ public class ClientConnection extends Thread{
                     case 3://alumno
                         switch(opcion){
                             case 1://seleccion materia
-                            dataOutputStream.writeUTF(nombreA);
-                            dataOutputStream.writeInt(identificadorA);
-                            materia=(String)dataInputStream.readUTF();
+                            //dataOutputStream.writeUTF(nombreA);
+                            //dataOutputStream.writeInt(identificadorA);
                             nombre=(String)dataInputStream.readUTF();
+                            materia=(String)dataInputStream.readUTF();
                             HorarioAlumno horarioAlumno = new HorarioAlumno(nombreA,materia,nombre,0);
                             existe = modeloMateria.buscarMateria(materia);
                             if(existe){
-                                existe1= modeloHorarioAlumno.buscarMateria(materia,nombreA);
+                                existe1 = modeloHorarioAlumno.buscarMateria(materia,nombreA);
                                 if(!existe1){
                                     modeloHorarioAlumno.altaMateria(horarioAlumno); 
                                     dataOutputStream.writeInt(1);//materia agregada
@@ -514,12 +516,13 @@ public class ClientConnection extends Thread{
 
                             case 3://ver datos
                                 ArrayList<Alumno> alu = (modeloAlumno.getAlumnos()); 
-                                                               
+                                dataOutputStream.writeInt(alu.size());
+                                
                                 for(int i=0; i<alu.size(); i++){
                                     if(alu.get(i).getNombre().equals(nombreA)){
                                          dataOutputStream.writeUTF(alu.get(i).getDatos());
                                     }else{
-                                        dataOutputStream.writeUTF("No se encontro datos");
+                                        dataOutputStream.writeUTF("");
                                     }
                                 }
                             break;
