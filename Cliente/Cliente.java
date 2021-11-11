@@ -218,9 +218,9 @@ public class Cliente{
                                 dos.writeInt(altaAlumno.getSemestre());
                                 opcion=(int)dis.readInt();
                                 if(opcion==0){
-                                    altaAlumno.setMsg("El maestro ya existe");
+                                    altaAlumno.setMsg("El alumno ya existe");
                                 }else{
-                                    altaAlumno.setMsg("Maestro creado");
+                                    altaAlumno.setMsg("Alumno creado");
                                 }  
                             break;
                             case 7:// baja alumnos
